@@ -3,7 +3,142 @@ guid: 0927cafed44954141af029cf8b9a46fe
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: ffdeeb0514ece2d45ac5b155548242b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 2d5b8e6d14c2fcc4ea02230313ff8fa6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 77d11661f25c13841b832e3a3c3e95da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 0e08f0f92438cf14ca45a9d0ab2f230e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: e1b8b47386f81dd4ca339c6f1c54f567, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.007
+    second: {fileID: 2100000, guid: 0afd4a59d80bf9a4f97de661304ee99f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.011
+    second: {fileID: 2100000, guid: b4d4fd95bf2d17149a17dcdcd3022651, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.013
+    second: {fileID: 2100000, guid: 0e822e91a31e0d14eab8e31649d0d874, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pared
+    second: {fileID: 2100000, guid: f0f214c0c48860742ac51081a2f067ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VENTANA GRANDE
+    second: {fileID: 2100000, guid: ee36595a455bb844781834a6474ecbf7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "VENTANA PEQUE\xD1A"
+    second: {fileID: 2100000, guid: 469a4aa8bef7f7d4f94fca8ade690006, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: alfombra
+    second: {fileID: 2100000, guid: ed31ead4f7e2d49489bb358083b4fba6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: caldero
+    second: {fileID: 2100000, guid: 52bcf7f790c8dd04688fda6d617efd7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cortinas
+    second: {fileID: 2100000, guid: 660eed3f97f9a854fb9cba994283de91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: esquina
+    second: {fileID: 2100000, guid: 1333c94c7ca6a214589e073c97f48315, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: estatua
+    second: {fileID: 2100000, guid: 92117498710a08049b2969997a55a063, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jarron 1
+    second: {fileID: 2100000, guid: e993bd7a32f86ce48b0e7962e5ac857a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jarron 2
+    second: {fileID: 2100000, guid: 191e2cfde8d123e4d87bb851d0a09862, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jarron 3
+    second: {fileID: 2100000, guid: d814202719493ea49bfeaf1ac4d7d15e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jarron4_
+    second: {fileID: 2100000, guid: 67bacdfbcdbac924b882ed17933064bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pared hueco
+    second: {fileID: 2100000, guid: a45f3bf053aa8ac48be212cd158a6e7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: raices_
+    second: {fileID: 2100000, guid: 12f0bcdcc0543654796f8f562e80242d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: suelo hueco
+    second: {fileID: 2100000, guid: c642f38ac1ab89c4c9e1f2be75f55804, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: suelo2
+    second: {fileID: 2100000, guid: a0bdf10fa33c9d44a95aaba8b3fb97c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: suelo5
+    second: {fileID: 2100000, guid: 85154aa4e9db0c7478edcff540d10ec8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: valla
+    second: {fileID: 2100000, guid: d2d8c9b1a5533db4d8e40c06b1d25e47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: velas
+    second: {fileID: 2100000, guid: 936f920c0719ea54c8687b0af3b075c3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
