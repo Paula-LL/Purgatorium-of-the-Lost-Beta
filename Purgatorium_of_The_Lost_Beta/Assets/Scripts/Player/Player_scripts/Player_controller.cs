@@ -54,7 +54,7 @@ public class Player_controller : MonoBehaviour
         animator = GetComponent<Animator>();
         ApplyLoversNormalModifiers(currentPlayerStats);
         healthBar.UpdateHealthBar();
-      
+
     }
 
     void Update()
@@ -102,10 +102,10 @@ public class Player_controller : MonoBehaviour
         }
 
         float speed = isDashing ? currentMovement.dashSpeed : currentMovement.moveSpeed;
-        
+
         controller.Move(moveDirection * speed * Time.deltaTime);
 
-       
+
     }
 
     void HandleAttack()
@@ -118,14 +118,14 @@ public class Player_controller : MonoBehaviour
             animator.SetBool("IsAttacking", true);
             PerformAttack();
         }
-        
+
     }
 
     void PerformAttack()
     {
-        
+
         Debug.Log("Ataque realizado");
-       
+
     }
 
     void StartDash()
@@ -163,7 +163,7 @@ public class Player_controller : MonoBehaviour
     void Die()
     {
         Debug.Log("Jugador ha muerto");
-        animator.SetBool("IsDead", true );
+        animator.SetBool("IsDead", true);
         Destroy(gameObject);
     }
 
@@ -194,8 +194,9 @@ public class Player_controller : MonoBehaviour
         {
             modifier.ApplyLoversNormalCardModifier(p);
         }
-        if (updateUI)
-            healthBar.UpdateHealthBar();
+        //TODO ARREGLAR
+        //if (updateUI)
+        // healthBar.UpdateHealthBar();
     }
 
     internal void SetCurrentHealthToMax()

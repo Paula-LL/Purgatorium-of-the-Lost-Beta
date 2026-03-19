@@ -541,7 +541,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnedCardPrefab: {fileID: 454993978}
   lootCards:
-  - {fileID: 11400000, guid: 437f1f9a63d0cf64f9426e1000de2149, type: 2}
+  - {fileID: 11400000, guid: 595f5d7c52d237243b3168681ce4a2d3, type: 2}
+  - {fileID: 11400000, guid: 7124c798708b70c4a97068b15d9106df, type: 2}
+  - {fileID: 11400000, guid: 34dd269ffe2e6404ab0a28a1d0fc445d, type: 2}
+  - {fileID: 11400000, guid: 04ca42b48154ba24bb1274a8e8055d42, type: 2}
 --- !u!4 &1628043792
 Transform:
   m_ObjectHideFlags: 0

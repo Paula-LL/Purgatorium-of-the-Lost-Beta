@@ -6,7 +6,7 @@ using UnityEngine;
 public class CardsLoot : ScriptableObject
 {
     public GameObject cardPrefabs;
-    public int dropChance;
+    public float dropChance;
 
     public CardsLoot(GameObject cardPrefabs, int dropChance) { 
         this.cardPrefabs = cardPrefabs;
