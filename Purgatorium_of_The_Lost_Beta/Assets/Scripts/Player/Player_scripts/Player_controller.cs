@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +34,7 @@ public class Player_controller : MonoBehaviour
 
     public List<LoversNormalModifier> stats = new List<LoversNormalModifier>();
     public List<ChariotNormalModifier> modifierMovementList = new List<ChariotNormalModifier>();
+    public List<ChariotInvertedModifier> modifierInvertedMovementList = new List<ChariotInvertedModifier>();
     public AudioSource playerAudio;
 
     [Header("Particles")]
@@ -180,6 +182,18 @@ public class Player_controller : MonoBehaviour
             modifier.ApplyChariotNormalCardModifier(m);
         }
     }
+    void ApplyChariotInvertedModifier(Movement m) {
+        foreach (ChariotInvertedModifier modifier in modifierInvertedMovementList)
+        {
+            modifier.ApplyChariotInvertedCardModifier(m);
+        }
+    }
+
+    internal void AddModifier(ChariotInvertedModifier cardsBuff)
+    {
+        modifierInvertedMovementList.Add(cardsBuff);
+        ApplyChariotInvertedModifier(currentMovement);
+    }
 
     internal void AddModifier(LoversNormalModifier cardsBuff, bool updateUI = true)
     {
@@ -210,6 +224,8 @@ public class Player_controller : MonoBehaviour
         currentPlayerStats.currentHealth = value;
         healthBar.UpdateHealthBar();
     }
+
+    
 }
 
 [System.Serializable]

@@ -7,10 +7,10 @@ using UnityEngine;
 public class AttackValueBuffModifier : AttackModifier
 {
     public int dropChance; 
-    public float hangedManAttackUp;
+    public int hangedManAttackUp;
     public override void ApplyAttackModifier(Attack attack)
     {
-        hangedManAttackUp = Random.Range(1.1f, 2f); 
+        hangedManAttackUp = Random.Range(1, 11); 
         attack.attackDamage *= hangedManAttackUp;
     }
 }
