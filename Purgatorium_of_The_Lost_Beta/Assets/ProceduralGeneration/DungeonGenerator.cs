@@ -259,6 +259,11 @@ public class DungeonGenerator : MonoBehaviour
                 else if (room.HasNeighbourInDirection(ROOM_DIRECTIONS.LEFT) &&
                     room.HasNeighbourInDirection(ROOM_DIRECTIONS.DOWN))
                 {
+                    result = Quaternion.Euler(0, 90, 0);
+                }
+                else if (room.HasNeighbourInDirection(ROOM_DIRECTIONS.UP) &&
+                    room.HasNeighbourInDirection(ROOM_DIRECTIONS.LEFT))
+                {
                     result = Quaternion.Euler(0, 180, 0);
                 }
             }

@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8377711485118895629, guid: 9fe1f507844beab42aec712678871419, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 8377711485118895629, guid: 9fe1f507844beab42aec712678871419, type: 3}
       propertyPath: m_LocalPosition.z
@@ -302,7 +302,7 @@ MonoBehaviour:
   - {fileID: 3403825525365625368, guid: 1fedd6f87539dba468358e5cc7c37109, type: 3}
   - {fileID: 2500387976581983879, guid: f170478a6de318a4a82fda7d490d3a80, type: 3}
   - {fileID: 9171938347909960701, guid: 105c22f2d578c354aa1191b54e9dda48, type: 3}
-  numberOfRooms: 25
+  numberOfRooms: 30
 --- !u!4 &657460335
 Transform:
   m_ObjectHideFlags: 0
@@ -750,8 +750,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 375.99588, y: 82.149216, z: -17.116848}
+  m_LocalRotation: {x: 0.0049872687, y: 0.9765871, z: -0.21506177, w: 0.0010982848}
+  m_LocalPosition: {x: -269.5, y: 38.8, z: 88.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
