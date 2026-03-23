@@ -194,9 +194,9 @@ public class Player_controller : MonoBehaviour
         {
             modifier.ApplyLoversNormalCardModifier(p);
         }
-        //TODO ARREGLAR
-        //if (updateUI)
-        // healthBar.UpdateHealthBar();
+       
+        if (updateUI)
+         healthBar.UpdateHealthBar();
     }
 
     internal void SetCurrentHealthToMax()
