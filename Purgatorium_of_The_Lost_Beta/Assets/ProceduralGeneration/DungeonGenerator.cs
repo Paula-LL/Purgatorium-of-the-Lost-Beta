@@ -203,7 +203,7 @@ public class DungeonGenerator : MonoBehaviour
                     break;
                 default: break;
             }
-            GameObject roomInstance = Instantiate(roomPrefab, new Vector3(room.xPosition * 62, 0, room.zPosition * 62), roomRotation);
+            GameObject roomInstance = Instantiate(roomPrefab, new Vector3(room.xPosition * 62, 2, room.zPosition * 62), roomRotation);
             if (!ReferenceEquals(environmentParent, null))
                 roomInstance.transform.parent = environmentParent.transform;
             _dungeonRoomInstances.Add(roomInstance);
