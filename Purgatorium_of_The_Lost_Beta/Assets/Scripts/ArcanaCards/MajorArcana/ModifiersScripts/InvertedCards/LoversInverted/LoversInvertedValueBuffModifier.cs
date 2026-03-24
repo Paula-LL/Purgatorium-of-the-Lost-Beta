@@ -5,10 +5,10 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Major Arcana/The Lovers (Inverted)")]
 
-public class LoversInvertedValueBuffModifier : LoversNormalModifier
+public class LoversInvertedValueBuffModifier : LoversInvertedModifier
 {
     public int healthDrop;
-    public override void ApplyLoversNormalCardModifier(PlayerStats health)
+    public override void ApplyLoversInvertedCardModifier(PlayerStats health)
     {
         health.maxHealth -= (healthDrop * 50)/100;
     }

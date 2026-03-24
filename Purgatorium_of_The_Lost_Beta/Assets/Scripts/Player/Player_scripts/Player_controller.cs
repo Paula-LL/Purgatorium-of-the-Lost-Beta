@@ -33,8 +33,11 @@ public class Player_controller : MonoBehaviour
     private float dashTimeLeft = 0f;
 
     public List<LoversNormalModifier> stats = new List<LoversNormalModifier>();
+    public List<LoversInvertedModifier> statsDebuffLoversInverted = new List<LoversInvertedModifier>();
+
     public List<ChariotNormalModifier> modifierMovementList = new List<ChariotNormalModifier>();
-    public List<ChariotInvertedModifier> modifierInvertedMovementList = new List<ChariotInvertedModifier>();
+    public List<ChariotInvertedModifier> modifierChariotInvertedMovementList = new List<ChariotInvertedModifier>();
+
     public AudioSource playerAudio;
 
     [Header("Particles")]
@@ -169,6 +172,8 @@ public class Player_controller : MonoBehaviour
         Destroy(gameObject);
     }
 
+
+    //THE CHARIOT BASE MODIFIERS
     internal void AddModifier(ChariotNormalModifier cardsBuff)
     {
         modifierMovementList.Add(cardsBuff);
@@ -182,8 +187,10 @@ public class Player_controller : MonoBehaviour
             modifier.ApplyChariotNormalCardModifier(m);
         }
     }
+
+    //THE CHARIOT INVERTED MODIFIERS
     void ApplyChariotInvertedModifier(Movement m) {
-        foreach (ChariotInvertedModifier modifier in modifierInvertedMovementList)
+        foreach (ChariotInvertedModifier modifier in modifierChariotInvertedMovementList)
         {
             modifier.ApplyChariotInvertedCardModifier(m);
         }
@@ -191,10 +198,32 @@ public class Player_controller : MonoBehaviour
 
     internal void AddModifier(ChariotInvertedModifier cardsBuff)
     {
-        modifierInvertedMovementList.Add(cardsBuff);
+        modifierChariotInvertedMovementList.Add(cardsBuff);
         ApplyChariotInvertedModifier(currentMovement);
     }
 
+
+    //THE LOVERS INVERTED MODIFIERS
+    internal void AddModifier(LoversInvertedModifier cardsBuff, bool updateUI = true)
+    {
+        statsDebuffLoversInverted.Add(cardsBuff);
+        ApplyLoversInvertedModifiers(currentPlayerStats, updateUI);
+    }
+
+    void ApplyLoversInvertedModifiers(PlayerStats p, bool updateUI = true)
+    {
+        p.maxHealth = p.baseHealth;
+        foreach (LoversNormalModifier modifier in stats)
+        {
+            modifier.ApplyLoversNormalCardModifier(p);
+        }
+
+        if (updateUI)
+            healthBar.UpdateHealthBar();
+    }
+
+
+    //THE LOVERS BASE MODIFIERS
     internal void AddModifier(LoversNormalModifier cardsBuff, bool updateUI = true)
     {
         stats.Add(cardsBuff);
