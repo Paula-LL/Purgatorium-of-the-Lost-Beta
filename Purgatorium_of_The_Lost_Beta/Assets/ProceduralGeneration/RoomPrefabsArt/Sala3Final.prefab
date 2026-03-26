@@ -95,7 +95,7 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
---- !u!1 &4695456380850241773
+--- !u!1 &1879074431630761530
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,37 +103,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7777528138607870061}
-  - component: {fileID: 77151976009506167}
+  - component: {fileID: 4905427109996359718}
+  - component: {fileID: 7958378961225644933}
   m_Layer: 0
-  m_Name: ColliderCentroSala
+  m_Name: ColliderPuerta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7777528138607870061
+--- !u!4 &4905427109996359718
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4695456380850241773}
+  m_GameObject: {fileID: 1879074431630761530}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 3.5, z: -0.5}
+  m_LocalPosition: {x: 27.61, y: 1.44, z: 1.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543527893775739436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &77151976009506167
+--- !u!65 &7958378961225644933
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4695456380850241773}
+  m_GameObject: {fileID: 1879074431630761530}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -146,7 +146,60 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 10, z: 10}
+  m_Size: {x: 2, y: 5, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2932763088193544821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3084014802793388905}
+  - component: {fileID: 2317653864765202259}
+  m_Layer: 0
+  m_Name: ColliderPuerta (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3084014802793388905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2932763088193544821}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1, y: 1.44, z: -27.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543527893775739436}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2317653864765202259
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2932763088193544821}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 5, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6037639808410288407
 GameObject:
@@ -210,8 +263,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7648453203834323002}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.9114396, y: -0.021366138, z: 0.009629243, w: -0.4107659}
-  m_LocalPosition: {x: 6.4000015, y: 41.8, z: 22.3}
+  m_LocalRotation: {x: 0.000119682656, y: 0.9620446, z: -0.27289212, w: 0.00042192522}
+  m_LocalPosition: {x: -2.7, y: 19.3, z: 35.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -236,7 +289,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
+  m_LookAt: {fileID: 8377711485118895629, guid: 9fe1f507844beab42aec712678871419, type: 3}
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
@@ -283,7 +336,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.04, y: 1, z: 1.04}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 543527893775739436}
@@ -420,7 +473,10 @@ PrefabInstance:
       addedObject: {fileID: 1379363181589171737}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b15260519443c7344a4fac6ecd66b0b5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7777528138607870061}
+      addedObject: {fileID: 4905427109996359718}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b15260519443c7344a4fac6ecd66b0b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3084014802793388905}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b15260519443c7344a4fac6ecd66b0b5, type: 3}
       insertIndex: -1
@@ -452,6 +508,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 3068544524625084932}
+  thisRoom: {fileID: 7935121285668043998}
+  puertasCollider: []
 --- !u!64 &6932208346380033723
 MeshCollider:
   m_ObjectHideFlags: 0

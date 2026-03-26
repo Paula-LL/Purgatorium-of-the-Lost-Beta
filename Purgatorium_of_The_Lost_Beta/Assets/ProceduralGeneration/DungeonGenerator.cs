@@ -203,7 +203,7 @@ public class DungeonGenerator : MonoBehaviour
                     break;
                 default: break;
             }
-            GameObject roomInstance = Instantiate(roomPrefab, new Vector3(room.xPosition * 62, 2, room.zPosition * 62), roomRotation);
+            GameObject roomInstance = Instantiate(roomPrefab, new Vector3(room.xPosition * 63, 2, room.zPosition * 63), roomRotation);
             if (!ReferenceEquals(environmentParent, null))
                 roomInstance.transform.parent = environmentParent.transform;
             _dungeonRoomInstances.Add(roomInstance);
@@ -280,17 +280,22 @@ public class DungeonGenerator : MonoBehaviour
             if (room.HasNeighbourInDirection(ROOM_DIRECTIONS.RIGHT) &&
                 !room.HasNeighbourInDirection(ROOM_DIRECTIONS.LEFT))
             {
-                result = Quaternion.Euler(0, 90, 0);
+                result = Quaternion.Euler(0, 270, 0);
             }
             else if (room.HasNeighbourInDirection(ROOM_DIRECTIONS.DOWN) &&
                 !room.HasNeighbourInDirection(ROOM_DIRECTIONS.UP))
             {
-                result = Quaternion.Euler(0, 180, 0);
+                result = Quaternion.Euler(0, 0, 0);
             }
             else if (room.HasNeighbourInDirection(ROOM_DIRECTIONS.LEFT) &&
                 !room.HasNeighbourInDirection(ROOM_DIRECTIONS.RIGHT))
             {
-                result = Quaternion.Euler(0, 270, 0);
+                result = Quaternion.Euler(0, 90, 0);
+            }
+            else if (room.HasNeighbourInDirection(ROOM_DIRECTIONS.UP) &&
+                !room.HasNeighbourInDirection(ROOM_DIRECTIONS.DOWN))
+            {
+                result = Quaternion.Euler(0, 180, 0);
             }
 
         }

@@ -8,10 +8,12 @@ public class Room : MonoBehaviour
     const int defaultCameraOnlinePriority = 12;
     const int defaultCameraOfflinePriority = 10;
     [SerializeField] Cinemachine.CinemachineVirtualCamera cam;
+    [SerializeField] GameObject thisRoom;
+    [SerializeField] Collider[] puertasCollider;
 
     private void Start()
     {
-        if(this.GetComponentInParent<GameObject>().transform.position == new Vector3(0, 2, 0))
+        if(thisRoom.transform.position == new Vector3(0, 2, 0))
         {
             cam.Priority = defaultCameraOnlinePriority;
         }
@@ -23,7 +25,6 @@ public class Room : MonoBehaviour
             OnEnterRoom();
         }
     }
-
     Cinemachine.CinemachineBrain GetBrain()
     {
         if (brainRef == null)
