@@ -13,18 +13,13 @@ public class Room : MonoBehaviour
 
     private void Start()
     {
-        if(thisRoom.transform.position == new Vector3(0, 2, 0))
+        if (thisRoom.transform.position == new Vector3(0, 2, 0))
         {
             cam.Priority = defaultCameraOnlinePriority;
         }
+
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            OnEnterRoom();
-        }
-    }
+
     Cinemachine.CinemachineBrain GetBrain()
     {
         if (brainRef == null)
@@ -34,7 +29,7 @@ public class Room : MonoBehaviour
         return brainRef;
     }
 
-    void OnEnterRoom()
+    public void OnEnterRoom()
     {
         Cinemachine.CinemachineVirtualCamera currentActiveCam = (Cinemachine.CinemachineVirtualCamera)GetBrain().ActiveVirtualCamera;
         if (currentActiveCam != null && currentActiveCam != cam)

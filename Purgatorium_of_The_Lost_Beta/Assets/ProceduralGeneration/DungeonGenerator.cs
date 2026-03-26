@@ -4,6 +4,7 @@ using UnityEngine;
 
 using System;
 using static UnityEngine.EventSystems.EventTrigger;
+using Cinemachine;
 
 public enum RoomTypes
 {
@@ -207,6 +208,7 @@ public class DungeonGenerator : MonoBehaviour
             if (!ReferenceEquals(environmentParent, null))
                 roomInstance.transform.parent = environmentParent.transform;
             _dungeonRoomInstances.Add(roomInstance);
+            roomInstance.GetComponentInChildren<CinemachineVirtualCamera>().m_LookAt = Player_controller.instance.transform;
         }
     }
 
@@ -395,7 +397,7 @@ public class DungeonGenerator : MonoBehaviour
             }
         }
     }
-    
+
     private RoomTypes GetRandomSpecialRoomType()
     {
         float rng = UnityEngine.Random.Range(0f, 1f);
@@ -406,7 +408,7 @@ public class DungeonGenerator : MonoBehaviour
         else
             return RoomTypes.EMPTY;
     }
-    
+
     /*private void SpawnSpecialRooms()
     {
        
@@ -536,7 +538,7 @@ public class DungeonGenerator : MonoBehaviour
     }
     */
     #endregion
-    
+
     public void DeleteDungeon()
     {
         try
@@ -548,7 +550,7 @@ public class DungeonGenerator : MonoBehaviour
                 Destroy(room);
 
             //foreach (Enemy enemy in _enemyInstances)
-                //Destroy(enemy.gameObject);
+            //Destroy(enemy.gameObject);
         }
         catch (NullReferenceException e)
         {
