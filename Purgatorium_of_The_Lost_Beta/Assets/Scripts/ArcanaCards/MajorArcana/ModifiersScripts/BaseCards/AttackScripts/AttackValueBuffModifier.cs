@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Major Arcana/The Hanged Man (Normal)")]
+[CreateAssetMenu(menuName = "Major Arcana/ Base /The Hanged Man (Normal)")]
 
 public class AttackValueBuffModifier : AttackModifier
 {

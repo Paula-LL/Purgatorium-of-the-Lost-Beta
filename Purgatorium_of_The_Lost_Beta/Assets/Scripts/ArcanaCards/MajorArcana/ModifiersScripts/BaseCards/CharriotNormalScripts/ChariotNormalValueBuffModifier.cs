@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Major Arcana/The Chariot (Normal)")]
+[CreateAssetMenu(menuName = "Major Arcana/ Base /The Chariot (Normal)")]
 
 public class ChariotNormalValueBuffModifier : ChariotNormalModifier
 {

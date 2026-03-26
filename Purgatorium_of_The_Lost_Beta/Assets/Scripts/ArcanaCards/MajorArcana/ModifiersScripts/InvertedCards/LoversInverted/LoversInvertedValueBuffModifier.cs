@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "Major Arcana/The Lovers (Inverted)")]
+[CreateAssetMenu(menuName = "Major Arcana/ Inverted /The Lovers (Inverted)")]
 
 public class LoversInvertedValueBuffModifier : LoversInvertedModifier
 {
