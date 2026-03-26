@@ -54,20 +54,33 @@ public class Player_controller : MonoBehaviour
         animator = GetComponent<Animator>();
         //ApplyLoversNormalModifiers(currentPlayerStats);
         healthBar.UpdateHealthBar();
-      
+
     }
 
     void Update()
     {
         HandleMovement();
         HandleAttack();
+        if (transform.position.y > 2.8f)
+        {
+            transform.position -= new Vector3(0, 0.1f, 0);
+        }
+    }
+    Vector3 GetMoveDirection(float x, float z)
+    {
+
+        Vector3 projectedForward = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up).normalized;
+        Vector3 projectedRight = Vector3.Cross(Vector3.up, projectedForward.normalized);
+
+
+        return (projectedForward * z + projectedRight * x).normalized;
     }
 
     void HandleMovement()
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        moveDirection = new Vector3(x, 0, z).normalized;
+        moveDirection = GetMoveDirection(x, z);
 
         if (moveDirection != Vector3.zero)
         {
@@ -102,10 +115,10 @@ public class Player_controller : MonoBehaviour
         }
 
         float speed = isDashing ? currentMovement.dashSpeed : currentMovement.moveSpeed;
-        
+
         controller.Move(moveDirection * speed * Time.deltaTime);
 
-       
+
     }
 
     void HandleAttack()
@@ -118,14 +131,14 @@ public class Player_controller : MonoBehaviour
             animator.SetBool("IsAttacking", true);
             PerformAttack();
         }
-        
+
     }
 
     void PerformAttack()
     {
-        
+
         Debug.Log("Ataque realizado");
-       
+
     }
 
     void StartDash()
@@ -163,52 +176,52 @@ public class Player_controller : MonoBehaviour
     void Die()
     {
         Debug.Log("Jugador ha muerto");
-        animator.SetBool("IsDead", true );
+        animator.SetBool("IsDead", true);
         Destroy(gameObject);
     }
 
-   /* internal void AddModifier(ChariotNormalModifier cardsBuff)
-    {
-        modifierMovementList.Add(cardsBuff);
-        ApplyChariotModifier(currentMovement);
-    }
+    /* internal void AddModifier(ChariotNormalModifier cardsBuff)
+     {
+         modifierMovementList.Add(cardsBuff);
+         ApplyChariotModifier(currentMovement);
+     }
 
-    void ApplyChariotModifier(Movement m)
-    {
-        foreach (ChariotNormalModifier modifier in modifierMovementList)
-        {
-            modifier.ApplyChariotNormalCardModifier(m);
-        }
-    }
+     void ApplyChariotModifier(Movement m)
+     {
+         foreach (ChariotNormalModifier modifier in modifierMovementList)
+         {
+             modifier.ApplyChariotNormalCardModifier(m);
+         }
+     }
 
-    internal void AddModifier(LoversNormalModifier cardsBuff, bool updateUI = true)
-    {
-        stats.Add(cardsBuff);
-        ApplyLoversNormalModifiers(currentPlayerStats, updateUI);
-    }
+     internal void AddModifier(LoversNormalModifier cardsBuff, bool updateUI = true)
+     {
+         stats.Add(cardsBuff);
+         ApplyLoversNormalModifiers(currentPlayerStats, updateUI);
+     }
 
-    void ApplyLoversNormalModifiers(PlayerStats p, bool updateUI = true)
-    {
-        p.maxHealth = p.baseHealth;
-        foreach (LoversNormalModifier modifier in stats)
-        {
-            modifier.ApplyLoversNormalCardModifier(p);
-        }
-        if (updateUI)
-            healthBar.UpdateHealthBar();
-    }
+     void ApplyLoversNormalModifiers(PlayerStats p, bool updateUI = true)
+     {
+         p.maxHealth = p.baseHealth;
+         foreach (LoversNormalModifier modifier in stats)
+         {
+             modifier.ApplyLoversNormalCardModifier(p);
+         }
+         if (updateUI)
+             healthBar.UpdateHealthBar();
+     }
 
-    internal void SetCurrentHealthToMax()
-    {
-        currentPlayerStats.currentHealth = currentPlayerStats.maxHealth;
-        healthBar.UpdateHealthBar();
-    }
+     internal void SetCurrentHealthToMax()
+     {
+         currentPlayerStats.currentHealth = currentPlayerStats.maxHealth;
+         healthBar.UpdateHealthBar();
+     }
 
-    internal void SetCurrentHealth(float value)
-    {
-        currentPlayerStats.currentHealth = value;
-        healthBar.UpdateHealthBar();
-    }*/
+     internal void SetCurrentHealth(float value)
+     {
+         currentPlayerStats.currentHealth = value;
+         healthBar.UpdateHealthBar();
+     }*/
 }
 
 [System.Serializable]
