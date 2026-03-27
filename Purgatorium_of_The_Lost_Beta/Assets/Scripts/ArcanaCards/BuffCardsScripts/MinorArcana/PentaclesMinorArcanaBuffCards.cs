@@ -13,6 +13,6 @@ public class PentaclesMinorArcanaBuffCards : BuffCards
 
         collision.GetComponent<InventoryController>().AddModifier(pentaclesCoins);
 
-        Debug.Log("Picked up: Cups");
+        Debug.Log("Picked up: Pentacles");
     }
 }

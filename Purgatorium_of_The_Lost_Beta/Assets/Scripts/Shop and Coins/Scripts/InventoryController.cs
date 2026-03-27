@@ -8,7 +8,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 public class InventoryController : MonoBehaviour
 {
 
-    public TMP_Text coinsTotalText; 
+    //public TMP_Text coinsTotalText; 
     public PlayerInventory inventory;
 
     public Inventory inv; 
@@ -43,11 +43,11 @@ public class InventoryController : MonoBehaviour
         }
     }
 
-    public void PickUpCurrency(int amount) {
+    /*public void PickUpCurrency(int amount) {
         inventory.coinsTotal += amount;
         coinsTotalText.text = inventory.coinsTotal.ToString();
         inv.UpdateInventoryUI();
-    }
+    }*/
 
     internal void AddModifier(PentacleModifier pentaclesCoins, bool updateUI = true)
     {
