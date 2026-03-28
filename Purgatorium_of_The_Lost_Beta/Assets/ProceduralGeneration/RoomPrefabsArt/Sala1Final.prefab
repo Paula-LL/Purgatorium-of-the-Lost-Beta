@@ -196,14 +196,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8898700016660799243}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0033557669, y: 0.9933404, z: -0.11119818, w: -0.029977277}
-  m_LocalPosition: {x: 2.2, y: 15.7, z: 42.9}
+  m_LocalRotation: {x: -0.00719383, y: 0.97070396, z: -0.23837796, w: -0.02929415}
+  m_LocalPosition: {x: 0.6, y: 17.1, z: 16.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5512203179405368763}
   m_Father: {fileID: 642977239405783373}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 27.594, y: -176.543, z: 0}
 --- !u!114 &4353931944521460360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,7 +339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95483054f50bf3648be62b72a5b85b85, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.2
+      value: 5.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95483054f50bf3648be62b72a5b85b85, type: 3}
       propertyPath: m_LocalRotation.w
@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 4353931944521460360}
-  thisRoom: {fileID: 263320700171924471}
+  thisRoom: {fileID: 546467887146023849}
 --- !u!4 &642977239405783373 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95483054f50bf3648be62b72a5b85b85, type: 3}
