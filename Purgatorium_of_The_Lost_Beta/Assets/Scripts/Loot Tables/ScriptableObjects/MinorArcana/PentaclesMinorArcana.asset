@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c71bcc4a8af64c44bee6b09423c2c2b, type: 3}
-  m_Name: CupsMinorArcana
+  m_Name: PentaclesMinorArcana
   m_EditorClassIdentifier: 
-  cardPrefabs: {fileID: 7265251169215137024, guid: 153904ff0175a0449947a2f0e88107fe, type: 3}
+  cardPrefabs: {fileID: 4039880126146907911, guid: 8c9c4b237754e044da441195b4fab9a3, type: 3}
   dropChance: 25

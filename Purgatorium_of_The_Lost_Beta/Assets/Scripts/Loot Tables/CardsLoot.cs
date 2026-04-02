@@ -12,9 +12,4 @@ public class CardsLoot : ScriptableObject
         this.cardPrefabs = cardPrefabs;
         this.dropChance = dropChance;
     }
-    //call to intances of ScriptableObjects
-    /*
-     Scriptable Nesting (dont forget casting):
-        SO with Call to dropChance and public ScriptableObject variable
-     */
 }
