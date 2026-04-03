@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class ChariotNormalModifier : ScriptableObject
 {
-    public abstract void ApplyChariotNormalCardModifier(Movement movement);
+    public abstract void ApplyChariotNormalCardModifier(PlayerStats.Movement movement);
 }

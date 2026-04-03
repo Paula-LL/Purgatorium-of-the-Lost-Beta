@@ -1,8 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Player_controller;
+using static PlayerStats;
 
 [RequireComponent(typeof(CharacterController))]
 public class Player_controller : MonoBehaviour
@@ -23,22 +23,19 @@ public class Player_controller : MonoBehaviour
     }
 
     public HealthBar healthBar;
-    public Animator animator;
-    public Movement currentMovement;
+
     public PlayerStats currentPlayerStats;
+    public PlayerStats.Movement currentMovement;
 
     private CharacterController controller;
     private Vector3 moveDirection;
     private bool isDashing = false;
     private float dashTimeLeft = 0f;
 
-    public List<LoversNormalModifier> stats = new List<LoversNormalModifier>();
-    public List<LoversInvertedModifier> statsDebuffLoversInverted = new List<LoversInvertedModifier>();
-
+    public List<LoversNormalModifier> loversBaseModifierList = new List<LoversNormalModifier>();
+    public List<LoversInvertedModifier> loversInvertedModifierList = new List<LoversInvertedModifier>();
     public List<ChariotNormalModifier> modifierMovementList = new List<ChariotNormalModifier>();
-    public List<ChariotInvertedModifier> modifierChariotInvertedMovementList = new List<ChariotInvertedModifier>();
-
-    public AudioSource playerAudio;
+    public List<ChariotInvertedModifier> charriotInvertedModifier = new List<ChariotInvertedModifier>();
 
     [Header("Particles")]
     [SerializeField]
@@ -53,13 +50,11 @@ public class Player_controller : MonoBehaviour
 
     void Start()
     {
-        currentMovement = new Movement();
         currentPlayerStats = new PlayerStats();
+        currentMovement = currentPlayerStats.movement;
         controller = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
         ApplyLoversNormalModifiers(currentPlayerStats);
         healthBar.UpdateHealthBar();
-
     }
 
     void Update()
@@ -78,14 +73,6 @@ public class Player_controller : MonoBehaviour
         {
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, currentMovement.rotationSpeed * Time.deltaTime);
-            animator.SetFloat("Speed", 1);
-            animator.SetBool("IsAttacking", false);
-            playerAudio.Play();
-        }
-        else
-        {
-            animator.SetFloat("Speed", 0);
-            playerAudio.Pause();
         }
 
         if (!isDashing && moveDirection.magnitude > 0.1f)
@@ -93,7 +80,6 @@ public class Player_controller : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.JoystickButton3))
             {
                 StartDash();
-                animator.SetBool("IsDashing", true);
             }
         }
         else if (isDashing)
@@ -102,15 +88,11 @@ public class Player_controller : MonoBehaviour
             if (dashTimeLeft <= 0)
             {
                 isDashing = false;
-                animator.SetBool("IsDashing", false);
             }
         }
 
         float speed = isDashing ? currentMovement.dashSpeed : currentMovement.moveSpeed;
-
         controller.Move(moveDirection * speed * Time.deltaTime);
-
-
     }
 
     void HandleAttack()
@@ -120,30 +102,26 @@ public class Player_controller : MonoBehaviour
 
         if (attackKeyboard || attackGamepad)
         {
-            animator.SetBool("IsAttacking", true);
             PerformAttack();
         }
-
     }
 
     void PerformAttack()
     {
-
         Debug.Log("Ataque realizado");
-
     }
 
     void StartDash()
     {
         isDashing = true;
-        currentMovement = new Movement(currentMovement);
+        currentMovement = new PlayerStats.Movement(currentMovement);
         dashTimeLeft = currentMovement.dashDuration;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
-        currentPlayerStats.currentHealth -= amount;
-        Debug.Log($"Jugador recibe {amount} de daño. Vida actual: {currentPlayerStats.currentHealth}/{currentPlayerStats.maxHealth}");
+        float finalDamage = Mathf.Max(amount - currentPlayerStats.defense, 0);
+        currentPlayerStats.currentHealth -= finalDamage;
         healthBar.UpdateHealthBar();
 
         if (currentPlayerStats.currentHealth <= 0)
@@ -167,8 +145,6 @@ public class Player_controller : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Jugador ha muerto");
-        animator.SetBool("IsDead", true);
         Destroy(gameObject);
     }
 
@@ -189,8 +165,9 @@ public class Player_controller : MonoBehaviour
     }
 
     //THE CHARIOT INVERTED MODIFIERS
-    void ApplyChariotInvertedModifier(Movement m) {
-        foreach (ChariotInvertedModifier modifier in modifierChariotInvertedMovementList)
+    void ApplyChariotInvertedModifier(Movement m)
+    {
+        foreach (ChariotInvertedModifier modifier in charriotInvertedModifier)
         {
             modifier.ApplyChariotInvertedCardModifier(m);
         }
@@ -198,7 +175,7 @@ public class Player_controller : MonoBehaviour
 
     internal void AddModifier(ChariotInvertedModifier cardsBuff)
     {
-        modifierChariotInvertedMovementList.Add(cardsBuff);
+        charriotInvertedModifier.Add(cardsBuff);
         ApplyChariotInvertedModifier(currentMovement);
     }
 
@@ -206,16 +183,16 @@ public class Player_controller : MonoBehaviour
     //THE LOVERS INVERTED MODIFIERS
     internal void AddModifier(LoversInvertedModifier cardsBuff, bool updateUI = true)
     {
-        statsDebuffLoversInverted.Add(cardsBuff);
+        loversInvertedModifierList.Add(cardsBuff);
         ApplyLoversInvertedModifiers(currentPlayerStats, updateUI);
     }
 
     void ApplyLoversInvertedModifiers(PlayerStats p, bool updateUI = true)
     {
         p.maxHealth = p.baseHealth;
-        foreach (LoversNormalModifier modifier in stats)
+        foreach (LoversInvertedModifier modifier in loversInvertedModifierList)
         {
-            modifier.ApplyLoversNormalCardModifier(p);
+            modifier.ApplyLoversInvertedCardModifier(p);
         }
 
         if (updateUI)
@@ -226,20 +203,20 @@ public class Player_controller : MonoBehaviour
     //THE LOVERS BASE MODIFIERS
     internal void AddModifier(LoversNormalModifier cardsBuff, bool updateUI = true)
     {
-        stats.Add(cardsBuff);
+        loversBaseModifierList.Add(cardsBuff);
         ApplyLoversNormalModifiers(currentPlayerStats, updateUI);
     }
 
     void ApplyLoversNormalModifiers(PlayerStats p, bool updateUI = true)
     {
         p.maxHealth = p.baseHealth;
-        foreach (LoversNormalModifier modifier in stats)
+        foreach (LoversNormalModifier modifier in loversBaseModifierList)
         {
             modifier.ApplyLoversNormalCardModifier(p);
         }
-       
+
         if (updateUI)
-         healthBar.UpdateHealthBar();
+            healthBar.UpdateHealthBar();
     }
 
     internal void SetCurrentHealthToMax()
@@ -254,53 +231,4 @@ public class Player_controller : MonoBehaviour
         healthBar.UpdateHealthBar();
     }
 
-    
-}
-
-[System.Serializable]
-public class PlayerStats
-{
-    public float baseHealth;
-    public float maxHealth = 5;
-    public float currentHealth;
-
-    public PlayerStats()
-    {
-        this.maxHealth = 5;
-        this.baseHealth = maxHealth;
-        this.currentHealth = maxHealth;
-    }
-
-    public PlayerStats(float maxHealth)
-    {
-        this.maxHealth = maxHealth;
-        this.baseHealth = maxHealth;
-        this.currentHealth = maxHealth;
-    }
-
-    public PlayerStats(PlayerStats playerStats)
-    {
-        maxHealth = playerStats.maxHealth;
-        baseHealth = playerStats.baseHealth;
-        currentHealth = playerStats.currentHealth;
-    }
-}
-
-[System.Serializable]
-public class Movement
-{
-    public float moveSpeed = 5f;
-    public float dashSpeed = 20f;
-    public float dashDuration = 0.1f;
-    public float rotationSpeed = 10f;
-
-    public Movement() { }
-
-    public Movement(Movement movement)
-    {
-        moveSpeed = movement.moveSpeed;
-        dashSpeed = movement.dashSpeed;
-        dashDuration = movement.dashDuration;
-        rotationSpeed = movement.rotationSpeed;
-    }
 }

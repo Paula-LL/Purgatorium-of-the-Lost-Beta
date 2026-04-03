@@ -9,7 +9,7 @@ public class ChariotInvertedlValueBuffModifier : ChariotInvertedModifier
     public int dropChance;
     public float charriotInvertedSpeedDown;
 
-    public override void ApplyChariotInvertedCardModifier(Movement movement)
+    public override void ApplyChariotInvertedCardModifier(PlayerStats.Movement movement)
     {
         movement.moveSpeed -= (movement.moveSpeed * charriotInvertedSpeedDown) / 100;
     }

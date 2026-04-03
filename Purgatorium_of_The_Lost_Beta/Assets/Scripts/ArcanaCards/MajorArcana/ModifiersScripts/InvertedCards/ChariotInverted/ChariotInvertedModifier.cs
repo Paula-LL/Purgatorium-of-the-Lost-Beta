@@ -4,6 +4,6 @@ using UnityEngine;
 
 public abstract class ChariotInvertedModifier : ScriptableObject
 {
-    public abstract void ApplyChariotInvertedCardModifier(Movement movement);
+    public abstract void ApplyChariotInvertedCardModifier(PlayerStats.Movement movement);
 
 }
