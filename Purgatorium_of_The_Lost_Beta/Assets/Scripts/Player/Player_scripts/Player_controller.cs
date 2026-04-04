@@ -59,12 +59,22 @@ public class Player_controller : MonoBehaviour
         HandleMovement();
         HandleAttack();
     }
+    Vector3 GetMoveDirection(float x, float z)
+    {
+
+        Vector3 projectedForward = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up).normalized;
+        Vector3 projectedRight = Vector3.Cross(Vector3.up, projectedForward.normalized);
+
+
+        return (projectedForward * z + projectedRight * x).normalized;
+    }
 
     void HandleMovement()
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        moveDirection = new Vector3(x, 0, z).normalized;
+
+        moveDirection = GetMoveDirection(x, z);
 
         if (moveDirection != Vector3.zero)
         {
