@@ -77,10 +77,10 @@ PrefabInstance:
       addedObject: {fileID: 125873030197008604}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8f77997a66e0aa4d96e09088dd7035a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5346194330241172345}
+      addedObject: {fileID: 8861494193648831167}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8f77997a66e0aa4d96e09088dd7035a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8861494193648831167}
+      addedObject: {fileID: 4670790911238712468}
   m_SourcePrefab: {fileID: 100100000, guid: a8f77997a66e0aa4d96e09088dd7035a, type: 3}
 --- !u!1 &9153650466797161655 stripped
 GameObject:
@@ -274,36 +274,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifierAttackList: []
-  enemigoBase: {fileID: 0}
-  enemigoDist: {fileID: 0}
-  bossHealth: {fileID: 0}
---- !u!114 &5346194330241172345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9153650466797161655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10020e9d2f45506469edb50069a6b18d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  animator: {fileID: 0}
-  currentMovement:
-    moveSpeed: 5
-    dashSpeed: 20
-    dashDuration: 0.1
-    rotationSpeed: 10
-  currentPlayerStats:
-    baseHealth: 5
-    maxHealth: 5
-    currentHealth: 5
-  stats: []
-  modifierMovementList: []
-  playerAudio: {fileID: 0}
-  characterDamageParticles: {fileID: 0}
 --- !u!82 &8861494193648831167
 AudioSource:
   m_ObjectHideFlags: 0
@@ -400,3 +370,42 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4670790911238712468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153650466797161655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dab2885179fd0429f277255d315f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  currentPlayerStats:
+    baseHealth: 5
+    maxHealth: 5
+    currentHealth: 5
+    baseDamage: 1
+    attackDamage: 1
+    defense: 0
+    critChance: 0.1
+    critMultiplier: 2
+    attackSpeed: 1
+    attackRadius: 0.4
+    attackDistance: 1.2
+    attackDuration: 0.2
+    movement:
+      moveSpeed: 5
+      dashSpeed: 20
+      dashDuration: 0.1
+      rotationSpeed: 10
+  currentMovement:
+    moveSpeed: 5
+    dashSpeed: 20
+    dashDuration: 0.1
+    rotationSpeed: 10
+  stats: []
+  modifierMovementList: []
+  characterDamageParticles: {fileID: 0}

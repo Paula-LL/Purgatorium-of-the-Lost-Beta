@@ -1,32 +1,31 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
 [RequireComponent(typeof(LineRenderer))]
 public class PlayerAttack : MonoBehaviour
 {
-    Attack baseAttack = new Attack();
-
     private bool isAttacking = false;
     private float attackTimer = 0f;
+    private float attackCooldown = 0f;
+
     private Renderer rend;
     private Color originalColor;
     private LineRenderer lineRenderer;
-   // public List<AttackModifier> modifierAttackList = new List<AttackModifier>();
-    //public EnemigoBase enemigoBase;
-    //public EnemigoDist enemigoDist;
-   // public BossHealth bossHealth;
+    public List<AttackModifier> modifierAttackList = new List<AttackModifier>();
 
+    private Player_controller player;
 
     void Start()
     {
+        player = Player_controller.instance;
+
         rend = GetComponent<Renderer>();
         originalColor = rend.material.color;
 
         lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.positionCount = baseAttack.circleSegments + 1;
+        lineRenderer.positionCount = 31;
         lineRenderer.loop = true;
         lineRenderer.widthMultiplier = 0.05f;
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
@@ -35,21 +34,28 @@ public class PlayerAttack : MonoBehaviour
         lineRenderer.enabled = false;
     }
 
-
-
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !isAttacking)
+        attackCooldown -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.F) && !isAttacking && attackCooldown <= 0f)
         {
             isAttacking = true;
-            attackTimer = baseAttack.attackDuration;
+
+            float duration = player.currentPlayerStats.attackDuration;
+            attackTimer = duration;
+            attackCooldown = 1f / player.currentPlayerStats.attackSpeed;
+
             rend.material.color = Color.red;
 
-            Attack attack = new Attack(baseAttack);
-           // ApplyAttackModifiers(attack);
+            Attack attack = new Attack(player.currentPlayerStats);
+            ApplyAttackModifiers(attack);
 
+            // Critico
+            if (UnityEngine.Random.value <= player.currentPlayerStats.critChance)
+                attack.attackDamage *= player.currentPlayerStats.critMultiplier;
 
-            //AttackEnemies(attack);
+            AttackEnemies(attack);
             DrawAttackCircle(attack);
             lineRenderer.enabled = true;
         }
@@ -66,7 +72,7 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    /*void AttackEnemies(Attack attack)
+    void AttackEnemies(Attack attack)
     {
         Vector3 center = transform.position + transform.forward * attack.attackDistance;
         Collider[] hitColliders = Physics.OverlapSphere(center, attack.attackRadius);
@@ -74,25 +80,32 @@ public class PlayerAttack : MonoBehaviour
         {
             if (col.CompareTag("Enemy"))
             {
-                // SOLO ESTA LÍNEA CAMBIÓ:
-                enemigoDist = col.GetComponent<EnemigoDist>();
-                enemigoBase = col.GetComponent<EnemigoBase>();    
+                EnemigoDist enemigoDist = col.GetComponent<EnemigoDist>();
+                EnemigoBase enemigoBase = col.GetComponent<EnemigoBase>();
+
                 if (enemigoDist != null)
                 {
                     enemigoDist.TakeDamage(attack.attackDamage);
-
+                    EstadisticasJuego.RegistrarDanoHecho(attack.attackDamage);
                 }
-                else if (enemigoBase!= null)
+                else if (enemigoBase != null)
                 {
-                   enemigoBase.TakeDamage(attack.attackDamage);
+                    enemigoBase.TakeDamage(attack.attackDamage);
+                    EstadisticasJuego.RegistrarDanoHecho(attack.attackDamage);
                 }
             }
+
             if (col.CompareTag("Boss"))
             {
-                bossHealth.RecibirDanio(attack.attackDamage);
+                BossHealth bossHit = col.GetComponent<BossHealth>();
+                if (bossHit != null)
+                {
+                    bossHit.RecibirDanio(attack.attackDamage);
+                    EstadisticasJuego.RegistrarDanoHecho(attack.attackDamage);
+                }
             }
         }
-    }*/
+    }
 
     void DrawAttackCircle(Attack attack)
     {
@@ -102,12 +115,11 @@ public class PlayerAttack : MonoBehaviour
             float angle = i * Mathf.PI * 2 / attack.circleSegments;
             float x = Mathf.Cos(angle) * attack.attackRadius;
             float z = Mathf.Sin(angle) * attack.attackRadius;
-            Vector3 pos = center + new Vector3(x, 0, z);
-            lineRenderer.SetPosition(i, pos);
+            lineRenderer.SetPosition(i, center + new Vector3(x, 0, z));
         }
     }
 
-    /*internal void AddModifier(AttackModifier cardsBuff)
+    internal void AddModifier(AttackModifier cardsBuff)
     {
         modifierAttackList.Add(cardsBuff);
     }
@@ -118,42 +130,23 @@ public class PlayerAttack : MonoBehaviour
         {
             modifier.ApplyAttackModifier(a);
         }
-    }*/
+    }
 }
 
 [System.Serializable]
 public class Attack
 {
-    public float attackDistance = 1.2f;
-    public float attackRadius = 0.4f;
-    public float attackDuration = 0.2f;
-    public float attackDamage = 1;
+    public float attackDistance;
+    public float attackRadius;
+    public float attackDuration;
+    public float attackDamage;
     public int circleSegments = 30;
 
-
-    public Attack()
+    public Attack(PlayerStats stats)
     {
-        this.attackDistance = 2.5f;
-        this.attackRadius = 2.5f;
-        this.attackDuration = 0.8f;
-        this.attackDamage = 1;
-        this.circleSegments = 30;
+        attackDistance = stats.attackDistance;
+        attackRadius   = stats.attackRadius;
+        attackDuration = stats.attackDuration;
+        attackDamage   = stats.attackDamage;
     }
-    public Attack(float attackDistance, float attackRadius, float attackDuration, float attackDamage, int circleSegments)
-    {
-        this.attackDistance = attackDistance;
-        this.attackRadius = attackRadius;
-        this.attackDuration = attackDuration;
-        this.attackDamage = attackDamage;
-        this.circleSegments = circleSegments;
-    }
-    public Attack(Attack attack)
-    {
-        attackDistance = attack.attackDistance;
-        attackRadius = attack.attackRadius;
-        attackDuration = attack.attackDuration;
-        attackDamage = attack.attackDamage;
-        circleSegments = attack.circleSegments;
-    }
-
 }
