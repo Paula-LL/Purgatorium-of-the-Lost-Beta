@@ -1587,10 +1587,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 509139087406041265, guid: 2dc65d206a80a3f43b1ac4f917c35f1a, type: 3}
-      insertIndex: 5
-      addedObject: {fileID: 1331586400}
+      insertIndex: 3
+      addedObject: {fileID: 1331586409}
     - targetCorrespondingSourceObject: {fileID: 509139087406041265, guid: 2dc65d206a80a3f43b1ac4f917c35f1a, type: 3}
       insertIndex: 6
+      addedObject: {fileID: 1331586400}
+    - targetCorrespondingSourceObject: {fileID: 509139087406041265, guid: 2dc65d206a80a3f43b1ac4f917c35f1a, type: 3}
+      insertIndex: 7
       addedObject: {fileID: 1331586399}
   m_SourcePrefab: {fileID: 100100000, guid: 2dc65d206a80a3f43b1ac4f917c35f1a, type: 3}
 --- !u!1 &736089793
@@ -3349,6 +3352,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifierAttackList: []
+--- !u!114 &1331586409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331586395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c347688ffbc2cf248adcd5d126cc131c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory:
+    coinsTotal: 0
+  inv: {fileID: 736089796}
+  pentaclesCoinsList: []
 --- !u!1 &1439372998
 GameObject:
   m_ObjectHideFlags: 0
