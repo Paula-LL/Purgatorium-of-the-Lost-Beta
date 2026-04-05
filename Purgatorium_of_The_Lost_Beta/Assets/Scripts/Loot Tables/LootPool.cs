@@ -12,40 +12,24 @@ public class LootPool : MonoBehaviour
 
     public CardsLoot GetRandomCard()
     {
+        float randomNum = Random.Range(0f, 100f);
+        float counter = 0f;
 
-        float randomNum = Random.Range(0.0f, 100.0f);
-        float counter = 0;
-        CardsLoot returnCard = null;
-        int i = 0;
-
-        while (returnCard == null)
+        foreach (var card in lootCards)
         {
-            if (i != lootCards.Count)
-            {
-                if (randomNum < counter + lootCards[i].dropChance)
-                {
-                    returnCard = lootCards[i];
-                }
-                else
-                {
-                    counter += lootCards[i].dropChance;
-                    i++;
-                }
-            }
-            else
-            {
-                returnCard = lootCards[i];
-            }
+            if (randomNum < counter + card.dropChance)
+                return card;
+
+            counter += card.dropChance;
         }
 
-        return returnCard;
+        return lootCards[lootCards.Count - 1];
     }
 
-    /*public void InstantiateCardLoot(Vector3 spawnPosition)
+    public void InstantiateCardLoot(Transform spawnPoint)
     {
-        CardsLoot droppedCard = GetRandomCard();
-        Debug.Log(droppedCard);
-    }*/
+        InstantiateCardLoot(spawnPoint.position);
+    }
 
     public void InstantiateCardLoot(Vector3 spawnPosition)
     {
@@ -53,13 +37,13 @@ public class LootPool : MonoBehaviour
 
         if (spawnedCardPrefab == null)
         {
-            Debug.LogError("No prefab assigned to LootPool!");
+            Debug.LogError("No prefab assigned");
             return;
         }
 
-        GameObject cardObj = Instantiate(spawnedCardPrefab, spawnPosition, Quaternion.identity);
+        Instantiate(spawnedCardPrefab, spawnPosition, Quaternion.identity);
+        Debug.Log("Spawned card: " + droppedCard.name);
     }
-
 
 #if UNITY_EDITOR
     [ContextMenu("InstantiateDebug")]
@@ -68,32 +52,33 @@ public class LootPool : MonoBehaviour
     {
         for (int i = 0; i < 1000; i++)
         {
-
             Debug.Log(GetRandomCard().name);
         }
-
     }
 
+    //call to car spawning on another script with: if public LootPool lootPool
+    //lootPool.InstantiateCardLoot(spawnPointTransform);
 }
+
 
 //public CardsLoot dropChanceLoot; 
 
-    /*List<CardsLoot> GetDroppedCard() {
-        float randomNumber = Random.Range(1f, 100.01f);
-        List<CardsLoot> possibleCards = new List<CardsLoot>();
+/*List<CardsLoot> GetDroppedCard() {
+    float randomNumber = Random.Range(1f, 100.01f);
+    List<CardsLoot> possibleCards = new List<CardsLoot>();
 
-        foreach (CardsLoot cards in lootCards) {
-            if (randomNumber <= cards.dropChance) { 
-                possibleCards.Add(cards);
-                return possibleCards; 
-            }
+    foreach (CardsLoot cards in lootCards) {
+        if (randomNumber <= cards.dropChance) { 
+            possibleCards.Add(cards);
+            return possibleCards; 
         }
+    }
 
-        if (possibleCards.Count > 0) { 
-            CardsLoot droppedCard = possibleCards[Random.Range(0,possibleCards.Count)];
-        }
+    if (possibleCards.Count > 0) { 
+        CardsLoot droppedCard = possibleCards[Random.Range(0,possibleCards.Count)];
+    }
 
-       // Mathf.Max(dropChanceLoot.dropChance);
+   // Mathf.Max(dropChanceLoot.dropChance);
 
-        return null;//placeholder, return card with highest drop rate.  
-    }*/
+    return null;//placeholder, return card with highest drop rate.  
+}*/
