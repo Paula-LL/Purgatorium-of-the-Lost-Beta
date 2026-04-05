@@ -9,6 +9,7 @@ public class Room : MonoBehaviour
     const int defaultCameraOfflinePriority = 10;
     [SerializeField] Cinemachine.CinemachineVirtualCamera cam;
     [SerializeField] GameObject thisRoom;
+    [SerializeField] GameObject spawnEnemyPoints;
 
     private void Start()
     {
@@ -40,6 +41,9 @@ public class Room : MonoBehaviour
         }
         cam.Priority = defaultCameraOnlinePriority;
     }
-
+    public GameObject returnSpawnEnemiesPoint()
+    {
+        return spawnEnemyPoints;
+    }
 
 }

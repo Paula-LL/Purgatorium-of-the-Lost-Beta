@@ -53,15 +53,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fcf6fb56c3d29b14a8baaacb6a7c42a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.1029034
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fcf6fb56c3d29b14a8baaacb6a7c42a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01999998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fcf6fb56c3d29b14a8baaacb6a7c42a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.227634
+      value: -5.2027636
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fcf6fb56c3d29b14a8baaacb6a7c42a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -168,14 +168,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ed2653c03ace646b335bf03f5a009e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats:
+    baseHealth: 3
+    maxHealth: 3
+    currentHealth: 3
+    defense: 0
+    baseDamage: 1
+    attackDamage: 1
+    critChance: 0
+    critMultiplier: 2
+    moveSpeed: 3
   playerTag: Player
-  moveSpeed: 3
   stopDistance: 5
   detectionRange: 25
   projectilePrefab: {fileID: 1185306056403853278, guid: 7e44fb460da361f47b84424fa9ee4dd6, type: 3}
   shootPoint: {fileID: 735387317694105381}
   shootCooldown: 2
-  maxHealth: 3
 --- !u!95 &4480069178612244052
 Animator:
   serializedVersion: 5

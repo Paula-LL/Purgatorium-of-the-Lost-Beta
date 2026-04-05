@@ -8,7 +8,8 @@ using UnityEngine.Audio;
 public class MenuPausaController : MonoBehaviour
 {
     [Header("CANVAS CONFIGURATION")]
-    public Canvas opcionesCanvas;
+    public GameObject opcionesCanvas;
+    public GameObject hpBar;
 
     [Header("AUDIO REFERENCES")]
     public AudioMixer audioMixer;
@@ -195,6 +196,7 @@ public class MenuPausaController : MonoBehaviour
         {
             bool activar = !opcionesCanvas.gameObject.activeSelf;
             opcionesCanvas.gameObject.SetActive(true);
+            hpBar.gameObject.SetActive(false);
 
             if (activar)
             {
@@ -204,6 +206,7 @@ public class MenuPausaController : MonoBehaviour
             {
                 ReanudarFisicas();
                 opcionesCanvas.gameObject.SetActive(false);
+                hpBar.gameObject.SetActive(true);
             }
         }
     }
