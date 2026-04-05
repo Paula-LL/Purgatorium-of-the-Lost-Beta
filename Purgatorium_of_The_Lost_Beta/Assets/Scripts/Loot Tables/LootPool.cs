@@ -12,10 +12,12 @@ public class LootPool : MonoBehaviour
 
     public CardsLoot GetRandomCard()
     {
+
         float randomNum = Random.Range(0.0f, 100.0f);
         float counter = 0;
         CardsLoot returnCard = null;
         int i = 0;
+
         while (returnCard == null)
         {
             if (i != lootCards.Count)
@@ -35,15 +37,29 @@ public class LootPool : MonoBehaviour
                 returnCard = lootCards[i];
             }
         }
+
         return returnCard;
     }
+
+    /*public void InstantiateCardLoot(Vector3 spawnPosition)
+    {
+        CardsLoot droppedCard = GetRandomCard();
+        Debug.Log(droppedCard);
+    }*/
 
     public void InstantiateCardLoot(Vector3 spawnPosition)
     {
         CardsLoot droppedCard = GetRandomCard();
-        Debug.Log(droppedCard);
 
+        if (spawnedCardPrefab == null)
+        {
+            Debug.LogError("No prefab assigned to LootPool!");
+            return;
+        }
+
+        GameObject cardObj = Instantiate(spawnedCardPrefab, spawnPosition, Quaternion.identity);
     }
+
 
 #if UNITY_EDITOR
     [ContextMenu("InstantiateDebug")]
