@@ -34,6 +34,7 @@ public class DungeonGenerator : MonoBehaviour
     //public List<GameObject> colorIndicators;
     public int numberOfRooms;
     public List<GameObject> enemyPrefabs;
+    public GameObject TeletrasportadorBoss;
     //private List<Enemy> _enemyInstances;
     #endregion
 
@@ -109,7 +110,7 @@ public class DungeonGenerator : MonoBehaviour
         InstantiateDungeon();
 
         SpawnEnemies();
-        //SpawnSpecialRooms();
+        SpawnSpecialRooms();
     }
 
     private void GenerateDungeonLayout()
@@ -410,7 +411,7 @@ public class DungeonGenerator : MonoBehaviour
             return RoomTypes.EMPTY;
     }
 
-    /*private void SpawnSpecialRooms()
+    private void SpawnSpecialRooms()
     {
        
 
@@ -420,18 +421,18 @@ public class DungeonGenerator : MonoBehaviour
             
             if (room.type == RoomTypes.TREASURE)
             {
-                Instantiate(colorIndicators[0], new Vector3( room.xPosition * 51,0.3f, room.zPosition * 51), Quaternion.identity);
+                
             }
             else if (room.type == RoomTypes.ENEMIES)
             {
-                Instantiate(colorIndicators[2], new Vector3(room.xPosition * 51, 0.3f, room.zPosition * 51), Quaternion.identity);
+                
             }
             else if (room.type == RoomTypes.BOSS)
             {
-                Instantiate(colorIndicators[1], new Vector3( room.xPosition * 51, 0.3f, room.zPosition * 51), Quaternion.identity);
+                Instantiate(TeletrasportadorBoss, new Vector3( room.xPosition * 63, 2f, room.zPosition * 63), Quaternion.identity);
             }
         }
-    }^*/
+    }
 
     #endregion
 
