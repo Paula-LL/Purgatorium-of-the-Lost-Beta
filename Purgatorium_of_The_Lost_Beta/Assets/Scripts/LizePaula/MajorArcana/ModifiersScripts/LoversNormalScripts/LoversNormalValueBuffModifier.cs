@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Major Arcana/The Lovers (Normal)")]
+[CreateAssetMenu(menuName = "Major Arcana/ Base /The Lovers (Normal)")]
 
 public class LoversNormalValueBuffModifier : LoversNormalModifier
 {

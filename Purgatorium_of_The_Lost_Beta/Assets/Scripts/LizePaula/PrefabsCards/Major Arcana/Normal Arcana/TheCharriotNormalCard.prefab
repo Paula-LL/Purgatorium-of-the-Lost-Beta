@@ -4842,7 +4842,7 @@ GameObject:
   - component: {fileID: 4653800814219480312}
   - component: {fileID: 2039416836561246378}
   - component: {fileID: 5814011774264744966}
-  - component: {fileID: 5071240072081040218}
+  - component: {fileID: -3910958466663983732}
   m_Layer: 0
   m_Name: TheCharriotNormalCard
   m_TagString: TarotCard
@@ -4894,7 +4894,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4937,7 +4937,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5071240072081040218
+--- !u!114 &-3910958466663983732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4946,7 +4946,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8254803853149730224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2633c6041207bb4f89446ee5a5dc7de, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d62d645a3ff01a4daf17a2d23edfe96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackModifier: {fileID: 11400000, guid: 6db3df8528671654cac0b7f4a17d02d0, type: 2}
+  chariotNormalModifier: {fileID: 11400000, guid: 9565c0aa944900e419d74aa8b443bd8a, type: 2}

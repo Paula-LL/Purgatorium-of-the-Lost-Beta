@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using TMPro; 
 
 public class HealthBar : MonoBehaviour
 {
@@ -17,16 +17,9 @@ public class HealthBar : MonoBehaviour
         UpdateHealthBar();
     }
 
-    public void UpdateHealthBar()
-    {
-        Player_controller pc = Player_controller.instance;
-        if (pc == null || pc.currentPlayerStats == null) return;
-        if (healthBar == null || healthBarText == null) return;
-
-        float current = pc.currentPlayerStats.currentHealth;
-        float max     = pc.currentPlayerStats.maxHealth;
-
-        healthBar.fillAmount = max > 0 ? current / max : 0f;
-        healthBarText.text   = current + "/" + max;
+    public void UpdateHealthBar() { 
+        healthBar.fillAmount = Player_controller.instance.currentPlayerStats.currentHealth/Player_controller.instance.currentPlayerStats.maxHealth;
+        healthBarText.text = Player_controller.instance.currentPlayerStats.currentHealth + "/" + Player_controller.instance.currentPlayerStats.maxHealth; 
     }
+
 }

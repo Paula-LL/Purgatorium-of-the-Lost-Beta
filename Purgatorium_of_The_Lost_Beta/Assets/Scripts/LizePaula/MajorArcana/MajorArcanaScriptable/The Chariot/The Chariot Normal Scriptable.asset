@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44933038feff1c94085ab332c08abef7, type: 3}
   m_Name: The Chariot Normal Scriptable
   m_EditorClassIdentifier: 
+  dropChance: 50
   charriotNormalSpeedUp: 1.25

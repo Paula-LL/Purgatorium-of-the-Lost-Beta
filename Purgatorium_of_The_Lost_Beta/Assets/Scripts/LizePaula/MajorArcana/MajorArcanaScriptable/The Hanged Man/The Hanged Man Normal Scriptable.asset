@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d32e945292492a468874c8105aef0aa, type: 3}
   m_Name: The Hanged Man Normal Scriptable
   m_EditorClassIdentifier: 
-  attackUp1: 2
+  dropChance: 50
+  hangedManAttackUp: 0
