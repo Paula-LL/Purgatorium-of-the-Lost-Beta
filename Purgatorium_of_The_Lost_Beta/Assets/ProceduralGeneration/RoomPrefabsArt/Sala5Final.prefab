@@ -1755,7 +1755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33cd0faeadb9ef94381fa2878078d583, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8
+      value: 7.39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33cd0faeadb9ef94381fa2878078d583, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1958,6 +1958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 4782740656538275851}
   thisRoom: {fileID: 7986240178955837915}
+  spawnEnemyPoints: {fileID: 0}
 --- !u!1001 &7641156013582911980
 PrefabInstance:
   m_ObjectHideFlags: 0

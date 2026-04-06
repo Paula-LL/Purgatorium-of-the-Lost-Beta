@@ -41,7 +41,8 @@ public class Ataque2 : MonoBehaviour
     private bool         siguiendoJugador = false;
     private float        anguloActual     = 0f;
     private MeshRenderer visualizador;
-    private Material     materialZona;
+    public  Material     materialZona;
+    public Color colour;
 
     void Start()
     {
@@ -167,8 +168,7 @@ public class Ataque2 : MonoBehaviour
         if (shaderTransp == null) shaderTransp = Shader.Find("Transparent/Diffuse");
         if (shaderTransp == null) shaderTransp = Shader.Find("Standard");
 
-        materialZona = new Material(shaderTransp);
-        materialZona.color = new Color(0f, 0f, 0f, 0f);
+        materialZona.color = colour;
         visualizador.material = materialZona;
     }
 

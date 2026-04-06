@@ -206,7 +206,7 @@ public class DungeonGenerator : MonoBehaviour
                     break;
                 default: break;
             }
-            GameObject roomInstance = Instantiate(roomPrefab, new Vector3(room.xPosition * 63, 2, room.zPosition * 63), roomRotation);
+            GameObject roomInstance = Instantiate(roomPrefab, new Vector3(room.xPosition * 63.2f, 2, room.zPosition * 63.2f), roomRotation);
             if (!ReferenceEquals(environmentParent, null))
                 roomInstance.transform.parent = environmentParent.transform;
             _dungeonRoomInstances.Add(roomInstance);
@@ -429,7 +429,7 @@ public class DungeonGenerator : MonoBehaviour
             }
             else if (room.type == RoomTypes.BOSS)
             {
-                Instantiate(TeletrasportadorBoss, new Vector3( room.xPosition * 63, 2f, room.zPosition * 63), Quaternion.identity);
+                Instantiate(TeletrasportadorBoss, new Vector3( room.xPosition * 63.2f, 2f, room.zPosition * 63.2f), Quaternion.identity);
             }
         }
     }

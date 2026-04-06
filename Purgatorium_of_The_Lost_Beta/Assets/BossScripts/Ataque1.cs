@@ -31,7 +31,8 @@ public class Ataque1 : MonoBehaviour
     private bool         cicloEnCurso     = false;
     private bool         faseAtaqueActiva = false;
     private MeshRenderer visualizador;
-    private Material     materialZona;
+    public Material     materialZona;
+    public Color colour;
 
     void Start()
     {
@@ -80,8 +81,8 @@ public class Ataque1 : MonoBehaviour
         if (shaderTransp == null) shaderTransp = Shader.Find("Transparent/Diffuse");
         if (shaderTransp == null) shaderTransp = Shader.Find("Standard");
 
-        materialZona = new Material(shaderTransp);
-        materialZona.color = new Color(0f, 0f, 0f, 0f);
+
+        materialZona.color = colour;
         visualizador.material = materialZona;
     }
 

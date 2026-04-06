@@ -4,6 +4,7 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using System.Collections;
 
 public class MenuPausaController : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class MenuPausaController : MonoBehaviour
 
     private static MenuPausaController instance;
     private bool ajustesCargados = false;
+
+    public Animator animator;
 
     void Awake()
     {
@@ -194,23 +197,24 @@ public class MenuPausaController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            animator.SetBool("isInPause", true);
             bool activar = !opcionesCanvas.gameObject.activeSelf;
             opcionesCanvas.gameObject.SetActive(true);
             hpBar.gameObject.SetActive(false);
 
             if (activar)
             {
-                PausarFisicas();
+                Invoke("PausarFisicas", 2);
             }
             else
             {
                 ReanudarFisicas();
+                animator.SetBool("isInPause", false);
                 opcionesCanvas.gameObject.SetActive(false);
                 hpBar.gameObject.SetActive(true);
             }
         }
     }
-
     void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;

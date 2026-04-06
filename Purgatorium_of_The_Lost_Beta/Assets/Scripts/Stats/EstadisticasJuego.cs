@@ -64,7 +64,7 @@ public class EstadisticasJuego : MonoBehaviour
     private void OnEscenaCargada(Scene escena, LoadSceneMode modo)
     {
         // Cuando se carga una nueva partida, incrementar partidas jugadas
-        if (escena.name == "Mapa" || escena.name == "Level" || escena.name == "Game")
+        if (escena.name == "lujuria" || escena.name == "Level" || escena.name == "Game")
         {
             PartidasJugadas++;
             tiempoSesionActual = 0f;

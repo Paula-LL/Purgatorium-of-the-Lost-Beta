@@ -50,11 +50,13 @@ public class CondiciondeVictoria : MonoBehaviour
     void BossDestruido()
     {
         bossDestruido = true;
+        EstadisticasJuego.RegistrarVictoria();
         Debug.Log($"¡El boss con tag '{bossTag}' ha sido destruido! Cargando escena: {sceneName}");
-
+        
         // Cambiar a la escena indicada
         if (!string.IsNullOrEmpty(sceneName))
         {
+           
             SceneManager.LoadScene(sceneName);
         }
         else
