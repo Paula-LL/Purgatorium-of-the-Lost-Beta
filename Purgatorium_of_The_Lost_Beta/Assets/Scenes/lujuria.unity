@@ -1817,13 +1817,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dante
       objectReference: {fileID: 0}
+    - target: {fileID: 942038693058484784, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
+      propertyPath: m_Center.y
+      value: 1.6
+      objectReference: {fileID: 0}
     - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1856,6 +1860,14 @@ PrefabInstance:
     - target: {fileID: 6623152439583925074, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164817884643597691, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164817884643597691, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
+      propertyPath: m_Center.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8697529000308491760, guid: b289e802b18de9f4a96c20eecbfa3528, type: 3}
       propertyPath: healthBar

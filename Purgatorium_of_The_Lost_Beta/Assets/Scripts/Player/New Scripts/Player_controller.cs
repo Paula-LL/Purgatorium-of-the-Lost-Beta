@@ -111,10 +111,7 @@ public class Player_controller : MonoBehaviour
         float speed = isDashing ? currentMovement.dashSpeed : currentMovement.moveSpeed;
         controller.Move(moveDirection * speed * Time.deltaTime);
 
-        if (transform.position.y > 3.5f)
-        {
-            controller.Move(new Vector3(0, -0.05f, 0));
-        }
+        
     }
 
     void HandleAttack()
